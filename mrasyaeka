@@ -1,0 +1,697 @@
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mrasyaekafirdaus — Portfolio</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #fafafa;
+            color: #111;
+            overflow-x: hidden;
+        }
+
+        /* ================= NAVBAR ================= */
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 25px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 999;
+
+            background: rgba(250,250,250,0.8);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        .logo span {
+            color: #999;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 35px;
+            list-style: none;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #222;
+            font-size: 14px;
+            transition: .3s;
+        }
+
+        nav ul li a:hover {
+            color: #888;
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            min-height: 100vh;
+            padding: 160px 7% 100px;
+
+            display: flex;
+            align-items: center;
+
+            position: relative;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 450px;
+            height: 450px;
+            border-radius: 50%;
+
+            background: #eeeeee;
+
+            right: -180px;
+            top: 150px;
+
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 1000px;
+        }
+
+        .small-title {
+            font-size: 13px;
+            letter-spacing: 5px;
+            color: #888;
+            text-transform: uppercase;
+
+            animation: fadeUp 1s ease;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(60px, 10vw, 135px);
+            line-height: .9;
+            font-weight: 600;
+            letter-spacing: -5px;
+
+            margin: 25px 0;
+
+            animation: fadeUp 1.2s ease;
+        }
+
+        .hero h1 span {
+            color: #888;
+        }
+
+        .hero-description {
+            max-width: 650px;
+            color: #666;
+            font-size: 17px;
+            line-height: 1.8;
+
+            animation: fadeUp 1.4s ease;
+        }
+
+        .hero-buttons {
+            margin-top: 40px;
+
+            display: flex;
+            gap: 15px;
+
+            animation: fadeUp 1.6s ease;
+        }
+
+        .btn {
+            padding: 14px 28px;
+            text-decoration: none;
+            font-size: 14px;
+            border-radius: 40px;
+            transition: .3s;
+        }
+
+        .btn-dark {
+            background: #111;
+            color: white;
+        }
+
+        .btn-dark:hover {
+            background: #333;
+            transform: translateY(-3px);
+        }
+
+        .btn-light {
+            border: 1px solid #ccc;
+            color: #111;
+        }
+
+        .btn-light:hover {
+            background: #eee;
+        }
+
+        /* ================= SECTION ================= */
+
+        section {
+            padding: 120px 7%;
+        }
+
+        .section-label {
+            color: #999;
+            letter-spacing: 4px;
+            font-size: 12px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 55px;
+            font-weight: 500;
+            margin-bottom: 50px;
+        }
+
+        /* ================= ABOUT ================= */
+
+        .about {
+            background: #111;
+            color: white;
+        }
+
+        .about .section-label {
+            color: #888;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        .about-text {
+            font-size: 18px;
+            color: #bbb;
+            line-height: 1.9;
+        }
+
+        .about-info {
+            border-left: 1px solid #333;
+            padding-left: 40px;
+        }
+
+        .info-item {
+            margin-bottom: 30px;
+        }
+
+        .info-item span {
+            display: block;
+            color: #777;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .info-item strong {
+            font-size: 17px;
+            font-weight: 500;
+        }
+
+        /* ================= SKILLS ================= */
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .skill-card {
+            padding: 35px;
+            border: 1px solid #ddd;
+            background: white;
+            transition: .4s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-8px);
+            border-color: #111;
+            box-shadow: 0 20px 50px rgba(0,0,0,.08);
+        }
+
+        .skill-number {
+            color: #aaa;
+            font-size: 13px;
+        }
+
+        .skill-card h3 {
+            margin: 25px 0 10px;
+            font-size: 20px;
+        }
+
+        .skill-card p {
+            color: #777;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        /* ================= CONTACT ================= */
+
+        .contact {
+            background: #eeeeee;
+        }
+
+        .contact-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            gap: 50px;
+        }
+
+        .contact h2 {
+            max-width: 700px;
+        }
+
+        .contact-email {
+            font-size: 18px;
+            color: #555;
+        }
+
+        .contact-email a {
+            color: #111;
+            text-decoration: none;
+            border-bottom: 1px solid #111;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background: #111;
+            color: #777;
+
+            padding: 30px 7%;
+
+            display: flex;
+            justify-content: space-between;
+
+            font-size: 12px;
+        }
+
+        /* ================= ANIMATION ================= */
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ================= MOBILE ================= */
+
+        @media(max-width: 800px) {
+
+            nav {
+                padding: 20px 5%;
+            }
+
+            nav ul {
+                gap: 15px;
+            }
+
+            nav ul li a {
+                font-size: 12px;
+            }
+
+            .hero {
+                padding: 140px 5% 80px;
+            }
+
+            .hero h1 {
+                font-size: 65px;
+                letter-spacing: -3px;
+            }
+
+            section {
+                padding: 80px 5%;
+            }
+
+            .section-title {
+                font-size: 42px;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .about-info {
+                border-left: none;
+                border-top: 1px solid #333;
+                padding-left: 0;
+                padding-top: 30px;
+            }
+
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-content {
+                flex-direction: column;
+                align-items: start;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav>
+
+        <div class="logo">
+            Mrasyaekafirdaus<span>.</span>
+        </div>
+
+        <ul>
+            <li>
+                <a href="#home">Home</a>
+            </li>
+
+            <li>
+                <a href="#about">About</a>
+            </li>
+
+            <li>
+                <a href="#skills">Skills</a>
+            </li>
+
+            <li>
+                <a href="#contact">Contact</a>
+            </li>
+        </ul>
+
+    </nav>
+
+
+    <!-- HERO -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <div class="small-title">
+                Creative Portfolio
+            </div>
+
+            <h1>
+                Mrasya<br>
+                <span>ekafirdaus.</span>
+            </h1>
+
+            <p class="hero-description">
+                Seorang pelajar Desain Komunikasi Visual yang
+                memiliki ketertarikan pada desain grafis,
+                fotografi, editing, dan berbagai karya visual
+                kreatif.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#about" class="btn btn-dark">
+                    Explore Portfolio
+                </a>
+
+                <a href="#contact" class="btn btn-light">
+                    Contact Me
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+
+    <section class="about" id="about">
+
+        <div class="section-label">
+            01 — About Me
+        </div>
+
+        <h2 class="section-title">
+            Tentang Saya
+        </h2>
+
+        <div class="about-grid">
+
+            <div class="about-text">
+
+                <p>
+                    Halo, saya <strong>Mrasyaekafirdaus</strong>.
+                    Saya merupakan pelajar yang sedang
+                    mengembangkan kemampuan di bidang
+                    Desain Komunikasi Visual.
+                </p>
+
+                <br>
+
+                <p>
+                    Saya senang mempelajari bagaimana sebuah
+                    ide dapat diubah menjadi visual yang
+                    menarik, sederhana, dan memiliki karakter.
+                </p>
+
+            </div>
+
+
+            <div class="about-info">
+
+                <div class="info-item">
+                    <span>Nama</span>
+                    <strong>Mrasyaekafirdaus</strong>
+                </div>
+
+                <div class="info-item">
+                    <span>Bidang</span>
+                    <strong>Desain Komunikasi Visual</strong>
+                </div>
+
+                <div class="info-item">
+                    <span>Fokus</span>
+                    <strong>Design & Visual</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SKILLS -->
+
+    <section id="skills">
+
+        <div class="section-label">
+            02 — Expertise
+        </div>
+
+        <h2 class="section-title">
+            Keahlian
+        </h2>
+
+        <div class="skills-container">
+
+            <div class="skill-card">
+
+                <span class="skill-number">
+                    01
+                </span>
+
+                <h3>
+                    Graphic Design
+                </h3>
+
+                <p>
+                    Membuat desain visual yang sederhana,
+                    modern, dan komunikatif.
+                </p>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <span class="skill-number">
+                    02
+                </span>
+
+                <h3>
+                    Photo Editing
+                </h3>
+
+                <p>
+                    Mengolah dan menyempurnakan foto
+                    untuk menghasilkan visual yang menarik.
+                </p>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <span class="skill-number">
+                    03
+                </span>
+
+                <h3>
+                    Poster Design
+                </h3>
+
+                <p>
+                    Membuat poster dengan komposisi,
+                    tipografi, dan konsep visual yang sesuai.
+                </p>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <span class="skill-number">
+                    04
+                </span>
+
+                <h3>
+                    Canva
+                </h3>
+
+                <p>
+                    Menggunakan Canva untuk membuat berbagai
+                    kebutuhan desain dan konten visual.
+                </p>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <span class="skill-number">
+                    05
+                </span>
+
+                <h3>
+                    Photography
+                </h3>
+
+                <p>
+                    Memahami dasar pengambilan gambar,
+                    komposisi, dan perspektif.
+                </p>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <span class="skill-number">
+                    06
+                </span>
+
+                <h3>
+                    Video Editing
+                </h3>
+
+                <p>
+                    Mengembangkan kemampuan editing video
+                    untuk kebutuhan konten kreatif.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section class="contact" id="contact">
+
+        <div class="section-label">
+            03 — Contact
+        </div>
+
+        <div class="contact-content">
+
+            <h2 class="section-title">
+                Mari membuat sesuatu
+                yang menarik bersama.
+            </h2>
+
+            <div class="contact-email">
+
+                Email:
+                <br>
+
+                <a href="mailto:emailkamu@gmail.com">
+                    emailkamu@gmail.com
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <span>
+            © 2026 Mrasyaekafirdaus
+        </span>
+
+        <span>
+            Creative Portfolio
+        </span>
+
+    </footer>
+
+</body>
+</html>
+```
