@@ -1,17 +1,331 @@
-html>
+<!DOCTYPE html>
+<html lang="id">
 <head>
-  <title>websitenya rasya</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio | Mrasyaekafirdaus</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #fff;
+            color: #111;
+            line-height: 1.6;
+        }
+
+        /* NAVBAR */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #eee;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #777;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #111;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #777;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 100px 8% 50px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero small {
+            color: #777;
+            letter-spacing: 3px;
+        }
+
+        .hero h1 {
+            font-size: clamp(45px, 8vw, 90px);
+            line-height: 1;
+            margin: 15px 0;
+        }
+
+        .hero h1 span {
+            color: #777;
+        }
+
+        .hero p {
+            max-width: 600px;
+            color: #666;
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 13px 25px;
+            background: #111;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            background: #555;
+            transform: translateY(-3px);
+        }
+
+        /* SECTION */
+        section {
+            padding: 100px 8%;
+        }
+
+        .section-title {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .line {
+            width: 60px;
+            height: 4px;
+            background: #111;
+            margin-bottom: 40px;
+        }
+
+        /* ABOUT */
+        .about {
+            background: #f7f7f7;
+        }
+
+        .about-content {
+            max-width: 800px;
+            color: #555;
+            font-size: 17px;
+        }
+
+        /* SKILLS */
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .skill {
+            padding: 12px 20px;
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            background: white;
+        }
+
+        /* CONTACT */
+        .contact-box {
+            max-width: 700px;
+        }
+
+        .contact-box p {
+            margin: 12px 0;
+            color: #555;
+        }
+
+        .contact-box strong {
+            color: #111;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #111;
+            color: white;
+            font-size: 14px;
+        }
+
+        /* MOBILE */
+        @media (max-width: 700px) {
+            nav {
+                padding: 18px 5%;
+            }
+
+            nav ul {
+                gap: 12px;
+            }
+
+            nav ul li a {
+                font-size: 13px;
+            }
+
+            .hero {
+                padding: 120px 5% 50px;
+            }
+
+            section {
+                padding: 80px 5%;
+            }
+
+            .hero h1 {
+                font-size: 55px;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+        }
+    </style>
 </head>
 
 <body>
-<table width=¨800px¨ align=¨center¨ border=¨1¨>
-  <tr>
-    <td colspan=¨2¨>
-      <h1>websitnya rasya</h1>
-    </td>
-  </tr>
-</table>
-  
-</body>
 
+    <!-- NAVBAR -->
+    <nav>
+        <div class="logo">
+            Mrasyaekafirdaus<span>.</span>
+        </div>
+
+        <ul>
+            <li><a href="#home">Beranda</a></li>
+            <li><a href="#about">Tentang</a></li>
+            <li><a href="#skills">Keahlian</a></li>
+            <li><a href="#contact">Kontak</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+
+            <small>PORTOFOLIO DKV</small>
+
+            <h1>
+                Mrasya<br>
+                <span>ekafirdaus.</span>
+            </h1>
+
+            <p>
+                Pelajar Desain Komunikasi Visual yang tertarik
+                pada desain grafis, editing, fotografi,
+                dan pembuatan karya visual kreatif.
+            </p>
+
+            <a href="#about" class="button">
+                Tentang Saya
+            </a>
+
+        </div>
+    </section>
+
+    <!-- TENTANG -->
+    <section class="about" id="about">
+
+        <h2 class="section-title">Tentang Saya</h2>
+        <div class="line"></div>
+
+        <div class="about-content">
+
+            <p>
+                Halo, saya <strong>Mrasyaekafirdaus</strong>.
+                Saya merupakan pelajar yang sedang mempelajari
+                bidang Desain Komunikasi Visual (DKV).
+            </p>
+
+            <br>
+
+            <p>
+                Saya memiliki ketertarikan dalam desain grafis,
+                editing foto, pembuatan poster, fotografi,
+                serta mengembangkan ide kreatif menjadi karya visual.
+            </p>
+
+        </div>
+    </section>
+
+    <!-- KEAHLIAN -->
+    <section id="skills">
+
+        <h2 class="section-title">Keahlian</h2>
+        <div class="line"></div>
+
+        <div class="skills">
+
+            <div class="skill">Graphic Design</div>
+            <div class="skill">Canva</div>
+            <div class="skill">Photo Editing</div>
+            <div class="skill">Poster Design</div>
+            <div class="skill">Photography</div>
+            <div class="skill">Video Editing</div>
+
+        </div>
+    </section>
+
+    <!-- KONTAK -->
+    <section id="contact" class="about">
+
+        <h2 class="section-title">Kontak</h2>
+        <div class="line"></div>
+
+        <div class="contact-box">
+
+            <p>
+                <strong>Nama:</strong>
+                Mrasyaekafirdaus
+            </p>
+
+            <p>
+                <strong>Bidang:</strong>
+                Desain Komunikasi Visual
+            </p>
+
+            <p>
+                <strong>Email:</strong>
+                emailkamu@gmail.com
+            </p>
+
+            <p>
+                <strong>Instagram:</strong>
+                @usernamekamu
+            </p>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        © 2026 Mrasyaekafirdaus. All Rights Reserved.
+    </footer>
+
+</body>
 </html>
