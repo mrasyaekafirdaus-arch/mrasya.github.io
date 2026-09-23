@@ -5,15 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Mrasyaekafirdaus — Portfolio</title>
+    <title>Mrasyaekafirdaus | Portfolio</title>
 
-    <!-- GOOGLE FONT -->
+    <!-- FONT -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <style>
+
+        :root {
+            --cream: #f5f1e8;
+            --cream2: #ebe5d8;
+            --sage: #a8b5a0;
+            --sage-dark: #596653;
+            --olive: #343d32;
+            --text: #252a24;
+            --white: #fffdf8;
+        }
 
         * {
             margin: 0;
@@ -23,227 +33,259 @@
         }
 
         body {
-            font-family: "DM Sans", sans-serif;
-            background: #f7f5f0;
-            color: #252525;
+            font-family: "Poppins", sans-serif;
+            background: var(--cream);
+            color: var(--text);
             overflow-x: hidden;
         }
 
-        /* ===================== NAVBAR ===================== */
+        /* ================= NAVBAR ================= */
 
         nav {
             position: fixed;
-            top: 20px;
+            top: 22px;
             left: 50%;
             transform: translateX(-50%);
 
             width: 90%;
-            max-width: 1100px;
+            max-width: 1150px;
 
-            padding: 15px 25px;
+            padding: 14px 24px;
 
             display: flex;
             justify-content: space-between;
             align-items: center;
 
-            background: rgba(255,255,255,0.65);
+            background: rgba(255,253,248,.72);
             backdrop-filter: blur(18px);
 
-            border: 1px solid rgba(255,255,255,0.8);
+            border: 1px solid rgba(255,255,255,.8);
+
             border-radius: 50px;
 
-            box-shadow: 0 10px 35px rgba(0,0,0,0.05);
+            box-shadow: 0 12px 35px rgba(52,61,50,.08);
 
             z-index: 999;
         }
 
         .logo {
-            font-family: "Playfair Display", serif;
-            font-size: 22px;
+            font-family: "Cormorant Garamond", serif;
+            font-size: 27px;
             font-weight: 600;
+            color: var(--olive);
         }
 
         .logo span {
-            color: #9b8d7a;
+            color: var(--sage-dark);
         }
 
         nav ul {
-            list-style: none;
             display: flex;
-            gap: 30px;
+            list-style: none;
+            gap: 28px;
         }
 
-        nav ul li a {
+        nav a {
             text-decoration: none;
-            color: #444;
-            font-size: 13px;
-            transition: 0.3s;
+            color: var(--text);
+            font-size: 12px;
+            transition: .3s;
         }
 
-        nav ul li a:hover {
-            color: #9b8d7a;
+        nav a:hover {
+            color: var(--sage-dark);
         }
 
-        /* ===================== HERO ===================== */
+        /* ================= HERO ================= */
 
         .hero {
             min-height: 100vh;
 
             display: flex;
-            align-items: center;
             justify-content: center;
+            align-items: center;
 
             text-align: center;
 
-            padding: 120px 20px 80px;
+            padding: 120px 20px;
 
             position: relative;
             overflow: hidden;
         }
 
-        /* background circles */
-
-        .circle {
+        .blob {
             position: absolute;
+
             border-radius: 50%;
+
             filter: blur(2px);
+
             z-index: -1;
         }
 
-        .circle.one {
-            width: 350px;
-            height: 350px;
-            background: #e5ddd0;
-            top: 10%;
-            left: -150px;
+        .blob1 {
+            width: 430px;
+            height: 430px;
+
+            background: #dce2d6;
+
+            left: -190px;
+            top: 100px;
         }
 
-        .circle.two {
-            width: 450px;
-            height: 450px;
-            background: #e8e4dc;
-            right: -200px;
-            bottom: -100px;
+        .blob2 {
+            width: 500px;
+            height: 500px;
+
+            background: #e5dccb;
+
+            right: -220px;
+            bottom: -180px;
         }
 
         .hero-content {
-            max-width: 900px;
-            animation: appear 1.2s ease;
+            max-width: 950px;
+
+            animation: fadeUp 1.2s ease;
         }
 
-        .mini-title {
-            text-transform: uppercase;
-            letter-spacing: 5px;
+        .subtitle {
+            color: var(--sage-dark);
+
             font-size: 11px;
-            color: #9b8d7a;
+
+            letter-spacing: 6px;
+
+            text-transform: uppercase;
+
             margin-bottom: 25px;
         }
 
         .hero h1 {
-            font-family: "Playfair Display", serif;
+            font-family: "Cormorant Garamond", serif;
 
-            font-size: clamp(65px, 11vw, 140px);
+            font-size: clamp(70px, 12vw, 155px);
 
-            line-height: 0.9;
+            line-height: .78;
 
             font-weight: 500;
 
             letter-spacing: -5px;
 
-            margin-bottom: 30px;
+            color: var(--olive);
         }
 
-        .hero h1 span {
-            font-style: italic;
-            color: #9b8d7a;
+        .hero h1 em {
+            color: var(--sage-dark);
         }
 
-        .hero p {
-            max-width: 570px;
-            margin: auto;
+        .hero-description {
+            max-width: 600px;
 
-            color: #777;
+            margin: 35px auto 0;
 
-            font-size: 16px;
+            color: #73786f;
 
-            line-height: 1.8;
+            font-size: 15px;
+
+            line-height: 1.9;
         }
 
-        .hero-buttons {
+        .buttons {
             margin-top: 35px;
 
             display: flex;
+
             justify-content: center;
+
             gap: 12px;
         }
 
         .btn {
-            padding: 13px 25px;
+            text-decoration: none;
+
+            padding: 13px 27px;
 
             border-radius: 50px;
 
-            text-decoration: none;
+            font-size: 12px;
 
-            font-size: 13px;
-
-            transition: 0.3s;
+            transition: .35s;
         }
 
-        .btn-dark {
-            background: #252525;
+        .btn-main {
+            background: var(--olive);
+
             color: white;
         }
 
-        .btn-dark:hover {
+        .btn-main:hover {
+            background: var(--sage-dark);
+
             transform: translateY(-4px);
-            box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+
+            box-shadow: 0 12px 25px rgba(52,61,50,.2);
         }
 
-        .btn-outline {
-            border: 1px solid #cfc8bd;
-            color: #444;
+        .btn-second {
+            border: 1px solid #b8b5aa;
+
+            color: var(--olive);
         }
 
-        .btn-outline:hover {
-            background: #ebe6dd;
+        .btn-second:hover {
+            background: var(--cream2);
+
+            transform: translateY(-4px);
         }
 
-        /* ===================== GENERAL ===================== */
+        /* ================= GENERAL ================= */
 
         section {
             padding: 120px 8%;
         }
 
+        .container {
+            max-width: 1150px;
+            margin: auto;
+        }
+
         .label {
-            text-transform: uppercase;
-            letter-spacing: 4px;
+            color: var(--sage-dark);
+
             font-size: 11px;
-            color: #9b8d7a;
-            margin-bottom: 15px;
+
+            letter-spacing: 5px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 14px;
         }
 
         .title {
-            font-family: "Playfair Display", serif;
+            font-family: "Cormorant Garamond", serif;
 
-            font-size: clamp(40px, 6vw, 70px);
+            font-size: clamp(45px, 6vw, 75px);
+
+            line-height: .95;
 
             font-weight: 500;
 
-            margin-bottom: 50px;
+            color: var(--olive);
+
+            margin-bottom: 55px;
         }
 
-        /* ===================== ABOUT ===================== */
+        /* ================= ABOUT ================= */
 
         .about {
-            background: #fff;
+            background: var(--white);
         }
 
-        .about-container {
-            max-width: 1100px;
-            margin: auto;
-
+        .about-grid {
             display: grid;
-            grid-template-columns: 1.3fr 1fr;
+
+            grid-template-columns: 1.2fr .8fr;
 
             gap: 100px;
 
@@ -251,138 +293,183 @@
         }
 
         .about-text {
-            font-size: 18px;
-            color: #666;
+            font-size: 16px;
+
+            color: #6c7169;
+
             line-height: 2;
         }
 
         .about-text strong {
-            color: #252525;
+            color: var(--olive);
         }
 
         .about-card {
-            padding: 45px;
-
-            background: #f7f5f0;
+            padding: 40px;
 
             border-radius: 30px;
 
-            border: 1px solid #ebe6dd;
+            background: linear-gradient(
+                145deg,
+                #eef1e9,
+                #e1e7dc
+            );
 
-            box-shadow: 0 20px 60px rgba(0,0,0,0.05);
+            box-shadow: 0 25px 60px rgba(52,61,50,.08);
         }
 
-        .about-card div {
+        .info {
             padding: 18px 0;
 
-            border-bottom: 1px solid #ded9d0;
+            border-bottom: 1px solid rgba(52,61,50,.15);
         }
 
-        .about-card div:last-child {
-            border-bottom: none;
+        .info:last-child {
+            border: none;
         }
 
-        .about-card span {
+        .info span {
             display: block;
 
-            font-size: 10px;
+            font-size: 9px;
 
             letter-spacing: 3px;
 
-            color: #999;
+            color: #778171;
 
             text-transform: uppercase;
 
-            margin-bottom: 6px;
+            margin-bottom: 5px;
         }
 
-        .about-card strong {
-            font-family: "Playfair Display", serif;
-            font-size: 18px;
+        .info strong {
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: 21px;
+
+            color: var(--olive);
         }
 
-        /* ===================== SKILLS ===================== */
+        /* ================= SKILLS ================= */
 
         .skills {
-            background: #f7f5f0;
+            background: var(--cream);
         }
 
         .skills-grid {
-            max-width: 1100px;
-
-            margin: auto;
-
             display: grid;
 
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(3,1fr);
 
             gap: 20px;
         }
 
         .skill {
-            background: rgba(255,255,255,0.7);
+            padding: 38px;
 
-            padding: 35px;
+            background: rgba(255,253,248,.7);
+
+            border: 1px solid rgba(89,102,83,.13);
 
             border-radius: 25px;
 
-            border: 1px solid #e5dfd5;
-
-            transition: 0.4s;
+            transition: .4s;
         }
 
         .skill:hover {
-            transform: translateY(-8px);
+            transform: translateY(-9px);
 
-            background: white;
+            background: var(--white);
 
-            box-shadow: 0 25px 50px rgba(0,0,0,0.08);
+            box-shadow: 0 25px 50px rgba(52,61,50,.09);
         }
 
-        .skill-number {
-            color: #b3a898;
+        .number {
+            color: #98a28f;
 
-            font-size: 12px;
+            font-size: 11px;
         }
 
         .skill h3 {
-            font-family: "Playfair Display", serif;
+            font-family: "Cormorant Garamond", serif;
 
-            font-size: 25px;
+            font-size: 28px;
+
+            font-weight: 600;
 
             margin: 25px 0 10px;
+
+            color: var(--olive);
         }
 
         .skill p {
-            color: #888;
-
-            font-size: 13px;
+            font-size: 12px;
 
             line-height: 1.8;
+
+            color: #7b8177;
         }
 
-        /* ===================== CONTACT ===================== */
+        /* ================= QUOTE ================= */
 
-        .contact {
-            background: #252525;
+        .quote {
+            background: var(--olive);
 
             color: white;
 
             text-align: center;
         }
 
-        .contact .label {
-            color: #b8aa98;
+        .quote p {
+            max-width: 850px;
+
+            margin: auto;
+
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: clamp(35px,5vw,60px);
+
+            line-height: 1;
+
+            font-style: italic;
+
+            color: #eef1e9;
+        }
+
+        .quote span {
+            display: block;
+
+            margin-top: 25px;
+
+            font-family: "Poppins", sans-serif;
+
+            font-size: 10px;
+
+            letter-spacing: 4px;
+
+            color: #aab5a2;
+
+            text-transform: uppercase;
+        }
+
+        /* ================= CONTACT ================= */
+
+        .contact {
+            background: var(--cream2);
+
+            text-align: center;
         }
 
         .contact .title {
             max-width: 750px;
 
-            margin: 0 auto 35px;
+            margin: auto;
         }
 
         .contact p {
-            color: #aaa;
+            color: #777b73;
+
+            font-size: 14px;
 
             margin-bottom: 30px;
         }
@@ -390,48 +477,52 @@
         .email {
             display: inline-block;
 
-            padding: 15px 30px;
+            text-decoration: none;
 
-            border: 1px solid #555;
+            color: var(--olive);
+
+            border: 1px solid #9da597;
+
+            padding: 14px 28px;
 
             border-radius: 50px;
 
-            color: white;
+            font-size: 12px;
 
-            text-decoration: none;
-
-            transition: 0.3s;
+            transition: .3s;
         }
 
         .email:hover {
-            background: white;
+            background: var(--olive);
 
-            color: #252525;
+            color: white;
+
+            border-color: var(--olive);
         }
 
-        /* ===================== FOOTER ===================== */
+        /* ================= FOOTER ================= */
 
         footer {
-            background: #252525;
-
-            color: #777;
+            padding: 28px;
 
             text-align: center;
 
-            padding: 30px;
+            background: var(--olive);
 
-            font-size: 11px;
+            color: #aeb5a8;
+
+            font-size: 10px;
 
             letter-spacing: 1px;
         }
 
-        /* ===================== ANIMATION ===================== */
+        /* ================= ANIMATION ================= */
 
-        @keyframes appear {
+        @keyframes fadeUp {
 
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(35px);
             }
 
             to {
@@ -441,9 +532,9 @@
 
         }
 
-        /* ===================== MOBILE ===================== */
+        /* ================= MOBILE ================= */
 
-        @media (max-width: 800px) {
+        @media(max-width:800px) {
 
             nav {
                 width: 94%;
@@ -453,16 +544,16 @@
                 gap: 12px;
             }
 
-            nav ul li a {
-                font-size: 11px;
+            nav a {
+                font-size: 10px;
             }
 
             .logo {
-                font-size: 18px;
+                font-size: 21px;
             }
 
             .hero h1 {
-                font-size: 65px;
+                font-size: 70px;
 
                 letter-spacing: -3px;
             }
@@ -471,7 +562,7 @@
                 padding: 90px 6%;
             }
 
-            .about-container {
+            .about-grid {
                 grid-template-columns: 1fr;
 
                 gap: 50px;
@@ -490,9 +581,7 @@
     </style>
 </head>
 
-
 <body>
-
 
     <!-- NAVBAR -->
 
@@ -529,35 +618,35 @@
 
     <section class="hero" id="home">
 
-        <div class="circle one"></div>
-
-        <div class="circle two"></div>
+        <div class="blob blob1"></div>
+        <div class="blob blob2"></div>
 
         <div class="hero-content">
 
-            <div class="mini-title">
+            <div class="subtitle">
                 Creative Portfolio
             </div>
 
             <h1>
-                Mrasyaekafirdaus
-                <span>.</span>
+                Mrasya<br>
+                <em>ekafirdaus.</em>
             </h1>
 
-            <p>
-                Visual learner & creative student with a passion
-                for design, photography, editing, and visual
-                storytelling.
+            <p class="hero-description">
+                Pelajar Desain Komunikasi Visual yang
+                mengeksplorasi desain, fotografi,
+                editing, dan berbagai bentuk
+                visual storytelling.
             </p>
 
-            <div class="hero-buttons">
+            <div class="buttons">
 
-                <a href="#about" class="btn btn-dark">
-                    Explore
+                <a href="#about" class="btn btn-main">
+                    Explore Portfolio
                 </a>
 
-                <a href="#contact" class="btn btn-outline">
-                    Contact
+                <a href="#contact" class="btn btn-second">
+                    Contact Me
                 </a>
 
             </div>
@@ -571,81 +660,94 @@
 
     <section class="about" id="about">
 
-        <div class="about-container">
+        <div class="container">
 
-            <div>
-
-                <div class="label">
-                    01 — About Me
-                </div>
-
-                <h2 class="title">
-                    A little bit<br>
-                    about me.
-                </h2>
-
-                <div class="about-text">
-
-                    <p>
-                        Halo, saya
-                        <strong>Mrasyaekafirdaus</strong>.
-                        Saya adalah seorang pelajar yang memiliki
-                        ketertarikan terhadap dunia
-                        <strong>Desain Komunikasi Visual</strong>.
-                    </p>
-
-                    <br>
-
-                    <p>
-                        Saya suka mengeksplorasi ide baru melalui
-                        desain, fotografi, editing, dan berbagai
-                        bentuk karya visual.
-                    </p>
-
-                </div>
-
+            <div class="label">
+                01 — About Me
             </div>
 
-
-            <div class="about-card">
+            <div class="about-grid">
 
                 <div>
 
-                    <span>Name</span>
+                    <h2 class="title">
+                        Creating with<br>
+                        curiosity.
+                    </h2>
 
-                    <strong>
-                        Mrasyaekafirdaus
-                    </strong>
+                    <div class="about-text">
+
+                        <p>
+                            Halo, saya
+                            <strong>Mrasyaekafirdaus</strong>.
+                            Saya merupakan seorang pelajar yang
+                            memiliki ketertarikan pada dunia
+                            <strong>Desain Komunikasi Visual</strong>.
+                        </p>
+
+                        <br>
+
+                        <p>
+                            Saya senang mengeksplorasi ide melalui
+                            desain, fotografi, editing, dan
+                            berbagai karya visual yang memiliki
+                            karakter dan cerita.
+                        </p>
+
+                    </div>
 
                 </div>
 
-                <div>
 
-                    <span>Field</span>
+                <div class="about-card">
 
-                    <strong>
-                        Desain Komunikasi Visual
-                    </strong>
+                    <div class="info">
 
-                </div>
+                        <span>
+                            Name
+                        </span>
 
-                <div>
+                        <strong>
+                            Mrasyaekafirdaus
+                        </strong>
 
-                    <span>Interest</span>
+                    </div>
 
-                    <strong>
-                        Design & Photography
-                    </strong>
+                    <div class="info">
 
-                </div>
+                        <span>
+                            Field
+                        </span>
 
-                <div>
+                        <strong>
+                            Desain Komunikasi Visual
+                        </strong>
 
-                    <span>Style</span>
+                    </div>
 
-                    <strong>
-                        Minimal & Aesthetic
-                    </strong>
+                    <div class="info">
+
+                        <span>
+                            Interest
+                        </span>
+
+                        <strong>
+                            Design & Photography
+                        </strong>
+
+                    </div>
+
+                    <div class="info">
+
+                        <span>
+                            Style
+                        </span>
+
+                        <strong>
+                            Minimal · Creative · Aesthetic
+                        </strong>
+
+                    </div>
 
                 </div>
 
@@ -660,125 +762,149 @@
 
     <section class="skills" id="skills">
 
-        <div class="label">
-            02 — Skills
+        <div class="container">
+
+            <div class="label">
+                02 — Expertise
+            </div>
+
+            <h2 class="title">
+                What I love<br>
+                to create.
+            </h2>
+
+            <div class="skills-grid">
+
+                <div class="skill">
+
+                    <span class="number">
+                        01
+                    </span>
+
+                    <h3>
+                        Graphic Design
+                    </h3>
+
+                    <p>
+                        Membuat desain visual yang
+                        clean, komunikatif, dan memiliki
+                        karakter.
+                    </p>
+
+                </div>
+
+
+                <div class="skill">
+
+                    <span class="number">
+                        02
+                    </span>
+
+                    <h3>
+                        Photography
+                    </h3>
+
+                    <p>
+                        Mengeksplorasi komposisi,
+                        angle, pencahayaan, dan
+                        storytelling.
+                    </p>
+
+                </div>
+
+
+                <div class="skill">
+
+                    <span class="number">
+                        03
+                    </span>
+
+                    <h3>
+                        Photo Editing
+                    </h3>
+
+                    <p>
+                        Mengolah foto agar memiliki
+                        mood dan visual yang lebih
+                        menarik.
+                    </p>
+
+                </div>
+
+
+                <div class="skill">
+
+                    <span class="number">
+                        04
+                    </span>
+
+                    <h3>
+                        Poster Design
+                    </h3>
+
+                    <p>
+                        Menggabungkan tipografi,
+                        layout, warna, dan visual.
+                    </p>
+
+                </div>
+
+
+                <div class="skill">
+
+                    <span class="number">
+                        05
+                    </span>
+
+                    <h3>
+                        Canva
+                    </h3>
+
+                    <p>
+                        Membuat berbagai desain
+                        kreatif untuk kebutuhan
+                        visual.
+                    </p>
+
+                </div>
+
+
+                <div class="skill">
+
+                    <span class="number">
+                        06
+                    </span>
+
+                    <h3>
+                        Video Editing
+                    </h3>
+
+                    <p>
+                        Mengembangkan konsep visual
+                        menjadi video yang menarik.
+                    </p>
+
+                </div>
+
+            </div>
+
         </div>
 
-        <h2 class="title">
-            What I do.
-        </h2>
+    </section>
 
 
-        <div class="skills-grid">
+    <!-- QUOTE -->
 
-            <div class="skill">
+    <section class="quote">
 
-                <span class="skill-number">
-                    01
-                </span>
+        <p>
+            "Design is not just what it looks like,
+            it's how it feels."
+        </p>
 
-                <h3>
-                    Graphic Design
-                </h3>
-
-                <p>
-                    Membuat desain visual dengan konsep
-                    yang sederhana, bersih, dan menarik.
-                </p>
-
-            </div>
-
-
-            <div class="skill">
-
-                <span class="skill-number">
-                    02
-                </span>
-
-                <h3>
-                    Photography
-                </h3>
-
-                <p>
-                    Mengeksplorasi komposisi, angle,
-                    pencahayaan, dan storytelling.
-                </p>
-
-            </div>
-
-
-            <div class="skill">
-
-                <span class="skill-number">
-                    03
-                </span>
-
-                <h3>
-                    Photo Editing
-                </h3>
-
-                <p>
-                    Mengolah foto untuk menciptakan
-                    tampilan visual yang lebih menarik.
-                </p>
-
-            </div>
-
-
-            <div class="skill">
-
-                <span class="skill-number">
-                    04
-                </span>
-
-                <h3>
-                    Poster Design
-                </h3>
-
-                <p>
-                    Menggabungkan tipografi, layout,
-                    dan visual menjadi sebuah poster.
-                </p>
-
-            </div>
-
-
-            <div class="skill">
-
-                <span class="skill-number">
-                    05
-                </span>
-
-                <h3>
-                    Canva
-                </h3>
-
-                <p>
-                    Membuat berbagai kebutuhan desain
-                    dan konten menggunakan Canva.
-                </p>
-
-            </div>
-
-
-            <div class="skill">
-
-                <span class="skill-number">
-                    06
-                </span>
-
-                <h3>
-                    Video Editing
-                </h3>
-
-                <p>
-                    Mengembangkan konsep dan editing
-                    video untuk kebutuhan kreatif.
-                </p>
-
-            </div>
-
-        </div>
+        <span>
+            Creative Mindset
+        </span>
 
     </section>
 
@@ -787,25 +913,30 @@
 
     <section class="contact" id="contact">
 
-        <div class="label">
-            03 — Contact
+        <div class="container">
+
+            <div class="label">
+                03 — Contact
+            </div>
+
+            <h2 class="title">
+                Let's create<br>
+                something beautiful.
+            </h2>
+
+            <p>
+                Mari terhubung dan membuat sesuatu
+                yang kreatif bersama.
+            </p>
+
+            <a
+                href="mailto:emailkamu@gmail.com"
+                class="email"
+            >
+                emailkamu@gmail.com
+            </a>
+
         </div>
-
-        <h2 class="title">
-            Let's create<br>
-            something beautiful.
-        </h2>
-
-        <p>
-            Tertarik untuk terhubung atau bekerja sama?
-        </p>
-
-        <a
-            href="mailto:emailkamu@gmail.com"
-            class="email"
-        >
-            emailkamu@gmail.com
-        </a>
 
     </section>
 
@@ -814,10 +945,9 @@
 
     <footer>
 
-        © 2026 Mrasyaekafirdaus — Creative Portfolio
+        © 2026 Mrasyaekafirdaus · Creative Portfolio
 
     </footer>
-
 
 </body>
 </html>
