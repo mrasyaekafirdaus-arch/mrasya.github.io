@@ -1,72 +1,580 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <title>Beranda</title>
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Portofolio | M Rasya Eka</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0f0f0f;
+            color: white;
+            line-height: 1.6;
+        }
+
+        /* NAVBAR */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(15, 15, 15, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #00e5ff;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #00e5ff;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 100px 8% 50px;
+            gap: 50px;
+        }
+
+        .hero-text {
+            max-width: 600px;
+        }
+
+        .hero-text span {
+            color: #00e5ff;
+            font-size: 18px;
+        }
+
+        .hero-text h1 {
+            font-size: 60px;
+            line-height: 1.1;
+            margin: 15px 0;
+        }
+
+        .hero-text h1 b {
+            color: #00e5ff;
+        }
+
+        .hero-text p {
+            color: #bbb;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background: #00e5ff;
+            color: #000;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 20px #00e5ff;
+        }
+
+        .hero-img {
+            width: 330px;
+            height: 330px;
+            border-radius: 50%;
+            border: 5px solid #00e5ff;
+            object-fit: cover;
+            box-shadow: 0 0 40px rgba(0, 229, 255, 0.4);
+        }
+
+        /* SECTION */
+        section {
+            padding: 100px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 40px;
+        }
+
+        .section-title span {
+            color: #00e5ff;
+        }
+
+        /* ABOUT */
+        .about {
+            display: flex;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .about-content {
+            max-width: 800px;
+            color: #bbb;
+        }
+
+        /* SKILLS */
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .skill {
+            background: #191919;
+            padding: 30px;
+            text-align: center;
+            border-radius: 15px;
+            transition: 0.3s;
+            border: 1px solid #292929;
+        }
+
+        .skill:hover {
+            transform: translateY(-8px);
+            border-color: #00e5ff;
+        }
+
+        .skill h3 {
+            color: #00e5ff;
+            margin-bottom: 10px;
+        }
+
+        /* PORTFOLIO */
+        .portfolio {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .project {
+            background: #191919;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .project:hover {
+            transform: translateY(-8px);
+        }
+
+        .project img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .project-content {
+            padding: 20px;
+        }
+
+        .project-content h3 {
+            color: #00e5ff;
+            margin-bottom: 8px;
+        }
+
+        .project-content p {
+            color: #aaa;
+        }
+
+        /* CONTACT */
+        .contact {
+            text-align: center;
+        }
+
+        .contact p {
+            color: #bbb;
+            margin-bottom: 25px;
+        }
+
+        .social {
+            margin-top: 25px;
+        }
+
+        .social a {
+            display: inline-block;
+            margin: 0 8px;
+            color: #00e5ff;
+            text-decoration: none;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #080808;
+            color: #777;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 45px;
+            }
+
+            .skills {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .portfolio {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            nav ul {
+                display: none;
+            }
+
+            .hero-img {
+                width: 250px;
+                height: 250px;
+            }
+
+            .skills,
+            .portfolio {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 80px 6%;
+            }
+        }
+    </style>
 </head>
 
-<body bgcolor= #F8F5F0>
-    <!-- Halaman web tanpa CSS. Murni hanya memakai HTML -->
-    <p>&nbsp;</p>
-    <table border="1" width="800px" cellpadding="12px" align="center" bgcolor="white">
-        <tr>
-            <td colspan="2" align="center" bgcolor="teal" background="images/jaring-teal.svg">
-                <font color="white">
-                    <p>&nbsp;</p>
-                    <h1>Website Rasya</h1>
-                    <p><em>Semangat Pejuang Rupiah</em></p>
-                    <p>&nbsp;</p>
-                </font>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2" bgcolor=#FFFFFF>
-                <a href="./">Beranda</a> |
-                <a href="tentang-saya.html">Tentang Saya</a> |
-                <a href="sekolahku.html">Sekolahku</a> |
-                <a href="syair-lagu.html">Syair Lagu</a>
-            </td>
-        </tr>
-        <tr>
-            <td width="75%">
-                <!-- Content utama -->
+<body>
 
-                <h3>Jenazah Kru Kapal Angkut 5 Jurnalis Hilang Diterbangkan Ke Banten Besok</h3>
-                <p align="right"><small><em>Rabu, 23 September 2026</em></small></p>
-                <p>Jenazah yang ditemukan warga di Pulau Enggano, Bengkulu teridentifikasi atas nama Sukarman (50), ABK kapal Arupadhatu 1 pembawa 5 jurnalis yang hendak ke Gunung Anak Krakatau. Jenazah akan diterbangkan ke Banten besok pagi.
-"Besok jenazah akan berangkat dari rumah sakit Bhayangkara menuju bandara untuk selanjutnya diterbangkan ke Jakarta menggunakan Batik Air pagi," kata Kabid Humas Polda Bengkulu, Kombes Imam Wijayanto</p>
-                <p><a href="berita/berita-1.html">Selanjutnya</a></p>
+    <!-- NAVBAR -->
+    <nav>
+        <div class="logo">PORTFOLIO.</div>
 
-                <hr>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">Tentang</a></li>
+            <li><a href="#skills">Skill</a></li>
+            <li><a href="#portfolio">Karya</a></li>
+            <li><a href="#contact">Kontak</a></li>
+        </ul>
+    </nav>
 
-                <h3>Pemerintah Mau Bagi-Bagi Duit RP 50 RB Buat Warga Usia 17 Tahun </h3>
-                <p align="right"><small><em>Kamis, 24 September 2026</em></small></p>
-                <p>Ada kabar menarik buat warga yang sudah berusia 17 tahun tapi belum punya rekening bank! Pemerintah berencana membukakan rekening gratis, sekaligus memberikan saldo awal Rp 50 ribu.
-                    Untuk program tersebut, pemerintah menyiapkan anggaran Rp 3,8 triliun dan menargetkan pelaksanaannya mulai tahun depan."Rekening gratis kami juga sudah laporkan kepada Pak Presiden, bahwa untuk rekening gratis ini dari hasil rekab, 
-                    itu ada sekitar yang sudah di atas usia 17 tahun, belum punya rekening itu ada jumlah tertentu. Nah ini yang kita sedang lihat bahwa yang sejumlah tertentu tersebut, itu membutuhkan dana kalau kita kasih Rp 50 ribu sebesar Rp 3,8 triliun,"
-                    ujar Menteri Koordinator Bidang Perekonomian Airlangga Hartarto</p>
 
-                <p><a href="berita/berita-2.html">Selanjutnya</a></p>
+    <!-- HOME -->
+    <section class="hero" id="home">
 
-                <!-- Akhir dari content utama -->
-            </td>
-            <td width="25%" valign="top" bgcolor="#A68A64">
-                <p>Tautan eksternal</p>
-                <ol>
-                    <li><a href="https://www.mawan.or.id">Website Rasya</a></li>
-                    <li><a href="https://www.github.com">Github</a></li>
-                    <li><a href="https://www.wikipedia.org">Wikipedia</a></li>
-                    <li><a href="https://www.w3schools.com">W3Schools</a></li>
-                </ol>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2" align="right" bgcolor=#292522>
-                <font color="white"><small>&copy; Copyright M Rasya.Eka , 2026.</small></font>
-            </td>
-        </tr>
-    </table>
-    <p>&nbsp;</p>
+        <div class="hero-text">
+
+            <span>Halo, saya</span>
+
+            <h1>
+                Nama <b>Kamu</b>
+            </h1>
+
+            <p>
+                Saya adalah pelajar Desain Komunikasi Visual
+                yang tertarik pada desain grafis, fotografi,
+                branding, dan kreativitas visual.
+            </p>
+
+            <a href="#portfolio" class="btn">
+                Lihat Karya
+            </a>
+
+        </div>
+
+        <!-- GANTI FOTO DI SINI -->
+        <img 
+            src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde"
+            alt="Foto Profil"
+            class="hero-img"
+        >
+
+    </section>
+
+
+    <!-- ABOUT -->
+    <section id="about">
+
+        <div class="section-title">
+            <h2>Tentang <span>Saya</span></h2>
+        </div>
+
+        <div class="about">
+
+            <div class="about-content">
+
+                <p>
+                    Saya merupakan seorang pelajar yang memiliki
+                    ketertarikan dalam dunia desain dan fotografi.
+                    Saya senang membuat karya visual yang menarik,
+                    sederhana, dan memiliki pesan yang jelas.
+                </p>
+
+                <br>
+
+                <p>
+                    Bagi saya, desain bukan hanya tentang membuat
+                    sesuatu terlihat bagus, tetapi juga bagaimana
+                    sebuah visual dapat menyampaikan sebuah cerita.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SKILLS -->
+    <section id="skills">
+
+        <div class="section-title">
+            <h2>My <span>Skills</span></h2>
+        </div>
+
+        <div class="skills">
+
+            <div class="skill">
+                <h3>🎨 Graphic Design</h3>
+                <p>Membuat poster, banner, logo, dan desain promosi.</p>
+            </div>
+
+            <div class="skill">
+                <h3>📷 Photography</h3>
+                <p>Foto produk, portrait, dan dokumentasi.</p>
+            </div>
+
+            <div class="skill">
+                <h3>💻 Editing</h3>
+                <p>Editing foto dan visual menggunakan software desain.</p>
+            </div>
+
+            <div class="skill">
+                <h3>✨ Branding</h3>
+                <p>Membuat identitas visual dan konsep sebuah brand.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PORTFOLIO -->
+    <section id="portfolio">
+
+        <div class="section-title">
+            <h2>My <span>Portfolio</span></h2>
+        </div>
+
+        <div class="portfolio">
+
+            <div class="project">
+
+                <!-- GANTI GAMBAR -->
+                <img 
+                    src="https://images.unsplash.com/photo-1542744094-3a31f272c490"
+                    alt="Project Design"
+                >
+
+                <div class="project-content">
+
+                    <h3>Poster Design</h3>
+
+                    <p>
+                        Desain poster promosi dengan konsep
+                        modern dan minimalis.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="project">
+
+                <!-- GANTI GAMBAR -->
+                <img 
+                    src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3"
+                    alt="Branding"
+                >
+
+                <div class="project-content">
+
+                    <h3>Branding</h3>
+
+                    <p>
+                        Membuat konsep identitas visual
+                        untuk sebuah produk.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="project">
+
+                <!-- GANTI GAMBAR -->
+                <img 
+                    src="https://images.unsplash.com/photo-1452587925148-ce544e77e70d"
+                    alt="Photography"
+                >
+
+                <div class="project-content">
+
+                    <h3>Photography</h3>
+
+                    <p>
+                        Eksplorasi fotografi dengan
+                        komposisi dan pencahayaan.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="project">
+
+                <img 
+                    src="https://images.unsplash.com/photo-1558655146-d09347e92766"
+                    alt="Logo Design"
+                >
+
+                <div class="project-content">
+
+                    <h3>Logo Design</h3>
+
+                    <p>
+                        Perancangan logo dengan konsep
+                        sederhana dan mudah diingat.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="project">
+
+                <img 
+                    src="https://images.unsplash.com/photo-1559028012-481c04fa702d"
+                    alt="UI Design"
+                >
+
+                <div class="project-content">
+
+                    <h3>UI Design</h3>
+
+                    <p>
+                        Membuat desain antarmuka yang
+                        sederhana dan modern.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="project">
+
+                <img 
+                    src="https://images.unsplash.com/photo-1558655146-9f40138edfeb"
+                    alt="Social Media Design"
+                >
+
+                <div class="project-content">
+
+                    <h3>Social Media</h3>
+
+                    <p>
+                        Membuat konten visual untuk
+                        kebutuhan media sosial.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+    <section id="contact">
+
+        <div class="section-title">
+            <h2>Hubungi <span>Saya</span></h2>
+        </div>
+
+        <div class="contact">
+
+            <p>
+                Tertarik untuk bekerja sama atau ingin melihat
+                karya saya lebih lanjut?
+            </p>
+
+            <a href="mailto:emailkamu@gmail.com" class="btn">
+                Email Saya
+            </a>
+
+            <div class="social">
+                <a href="#">Instagram</a>
+                <a href="#">WhatsApp</a>
+                <a href="#">TikTok</a>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <p>
+            © 2026 Nama Kamu. All Rights Reserved.
+        </p>
+
+    </footer>
+
 </body>
-
 </html>
